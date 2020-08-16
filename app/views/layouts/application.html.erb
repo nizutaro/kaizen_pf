@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kaizen</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <nav class="nav navbar-nav navbar-right navbar-inverse" style= "background-color: #192437;">
+      <div class= 'ccontainer-fluid'>
+        <div class= "row">
+          <div class= 'col-md-5'>
+            <nav class="nav navbar-nav navbar-left">
+            </nav>
+          </div>
+          <div class= 'col-md-2'>
+          </div>
+          <div class= 'col-md-5'>
+            <% if user_signed_in? %>
+              <%= link_to("マイページ",user_path(current_user.id)) %>
+              <%= link_to("会員一覧",users_path) %>
+              <%= link_to(" ログアウト", destroy_user_session_path) %>
+            <% else %>
+               <%= link_to("about",root_path,{class: "glyphicon glyphicon-log-in"})%>
+               <%= link_to("新規登録", new_user_registration_path)%>
+               <%= link_to("ログイン", new_user_session_path)%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class= 'container'>
+      <%= yield %>
+    </div>
+  </body>
+</html>

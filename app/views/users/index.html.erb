@@ -1,0 +1,18 @@
+<div class= "row">
+  <div class= "col-md-12">
+    <% @users.each do |user| %>
+      <table class= "table">
+        <th><p>会員id</p></th>
+        <th><p>会員名</p></th>
+        <tr>
+          <td> <%= user.id %> </td>
+          <td> <%= link_to user.family_name + user.farst_name,user_path(user.id) %> </td>
+          <td> <p>"ナイストライ"　</p></td>
+          <td> <%= link_to "編集", edit_user_path(user) %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+</div>
