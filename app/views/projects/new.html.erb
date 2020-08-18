@@ -1,2 +1,140 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<div class="row">
+  <div class="col-md-6 text-center">
+    <div class="form-group">
+      <%= form_with(model:[@project], local: true) do |f| %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"プロジェクト名：" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"内容：" %>
+      <%= f.text_area :content %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"開始日：" %>
+      <%= raw sprintf(
+        f.date_select(:"start_date",   
+        use_month_numbers: true,
+        start_year:        2020,
+        end_year:          (Time.now.year + 20),
+        default:           Date.new(2020, 1, 1),
+        date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+            '年 ', '月 ') + '日' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"終了日：" %>
+      <%= raw sprintf(
+      f.date_select(:"finish_date",   
+      use_month_numbers: true,
+      start_year:        2020,
+      end_year:          (Time.now.year + 20),
+      default:           Date.new(2020, 1, 1),
+      date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+          '年 ', '月 ') + '日' %>
+    </div>
+    <div class="form-group"> 
+      <%= f.label :"月回数" %>
+      <%= f.text_field :number_of_month %>
+    </div>
+    <div class="form-group"> 
+      <%= f.label :"ステータス：" %>
+      <%= f.select :status, Project.statuses.keys.to_a %>
+    </div>
+    <%= f.submit '次へ', class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<!-- 改善時間の比較 -->
+<div class="row">
+  <%= form_with(model:[@project], local: true) do |f| %>
+  <div class="col-md-6">
+  <table>
+    <tr>
+     <td>
+    <p>改善前</p>
+      <div class="form-group">
+        <%= f.label :"工程名：" %>
+        <%= f.text_field :name %>
+        <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"工程名：" %>
+        <%= f.text_field :name %>
+        <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"工程名：" %>
+        <%= f.text_field :name %>
+        <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"工程名：" %>
+        <%= f.text_field :name %>
+        <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"工程名：" %>
+        <%= f.text_field :name %>
+        <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"工程名：" %>
+        <%= f.text_field :name %>
+        <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+      </div>
+    </td>   
+  </div>
+  <div class="col-md-6">
+
+  <td>
+    <p>改善後</p>
+    <div class="form-group">
+      <%= f.label :"工程名：" %>
+      <%= f.text_field :name %>
+      <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"工程名：" %>
+      <%= f.text_field :name %>
+      <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"工程名：" %>
+      <%= f.text_field :name %>
+      <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"工程名：" %>
+      <%= f.text_field :name %>
+      <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"工程名：" %>
+      <%= f.text_field :name %>
+      <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"工程名：" %>
+      <%= f.text_field :name %>
+      <%= f.label :"作業時間：" %>
+        <%= f.time_select :reducation_time %>
+    </div>
+   </td>
+  </div>
+
+  </tr>
+ </table> 
+  <% end %>
+</div>

@@ -23,6 +23,7 @@
             <% if user_signed_in? %>
               <%= link_to("マイページ",user_path(current_user.id)) %>
               <%= link_to("会員一覧",users_path) %>
+              <%= link_to("提案一覧",projects_path) %>
               <%= link_to(" ログアウト", destroy_user_session_path) %>
             <% else %>
                <%= link_to("about",root_path,{class: "glyphicon glyphicon-log-in"})%>
